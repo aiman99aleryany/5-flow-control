@@ -112,17 +112,10 @@ body {
       display: flex;
       justify-content: space-between;
       div {
-        position: relative;
         display: flex;
         width: f.cvrt_px(45);
         height: f.cvrt_px(45);
         border: 2px solid vars.$color-primary;
-
-        * {
-          position: absolute;
-          right: 10px;
-          bottom: 10px;
-        }
       }
 
       .fs-1rem {
@@ -136,9 +129,10 @@ body {
       }
 
       .fs-3rem {
+        // Added line-height and letter-spacing to make sure the big numbers stay inside the box
         font-size: f.cvrt_px(48);
         line-height: 1;
-        letter-spacing: -5px;
+        letter-spacing: f.cvrt_px(-5);
       }
     }
 
