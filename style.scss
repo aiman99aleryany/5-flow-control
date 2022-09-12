@@ -118,21 +118,18 @@ body {
         border: 2px solid vars.$color-primary;
       }
 
-      .fs-1rem {
-        font-size: f.cvrt_px(16);
-        align-items: flex-start;
-      }
-
-      .fs-2rem {
-        font-size: f.cvrt_px(32);
-        align-items: flex-start;
-      }
-
-      .fs-3rem {
-        // Added line-height and letter-spacing to make sure the big numbers stay inside the box
-        font-size: f.cvrt_px(48);
-        line-height: 1;
-        letter-spacing: f.cvrt_px(-5);
+      $fs_index: 1, 2, 3;
+      @each $i in $fs_index {
+        .fs-#{$i + rem} {
+          font-size: f.cvrt_px(16 * $i);
+          align-items: flex-start;
+          @if $i == 3 {
+            // Added line-height and letter-spacing to make sure the big numbers stay inside the box
+            align-items: initial;
+            line-height: 1;
+            letter-spacing: f.cvrt_px(-5);
+          }
+        }
       }
     }
 
